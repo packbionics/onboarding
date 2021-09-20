@@ -8,7 +8,7 @@ Before you get started with contributing to the project there are a few things t
 Go over the list of topics one-by-one. Prioritize the topics in bold as they are required and you will not be able to contribute to the codebase without completing them. Most topics have a list of recommended resources to read or watch on your own. We encourage you to search for more.
 
 ## Topics
-1. [UNIX]("UNIX/UNIX.md")
+1. [UNIX](UNIX/UNIX.md)
 2. [**Git & GitHub**]("Git & GitHub/Git-&-GitHub.md")
 3. [**Documentation**]("Documentation/Documentation.md")
 4. [**Style Guide**]("Style Guide/Style-Guide.md")
