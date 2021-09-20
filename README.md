@@ -9,7 +9,7 @@ Go over the list of topics one-by-one. Prioritize the topics in bold as they are
 
 ## Topics
 1. [UNIX](UNIX/UNIX.md)
-2. [**Git & GitHub**](Git\ \&\ Github/Git-&-GitHub.md)
+2. [**Git & GitHub**](<Git & Github/Git-&-GitHub.md>)
 3. [**Documentation**](Documentation/Documentation.md)
 4. [**Style Guide**](Style\ Guide/Style-Guide.md)
 5. [ROS](ROS/ROS.md)
