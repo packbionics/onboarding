@@ -10,7 +10,7 @@ This tutorial assumes that you have:
 ### What is a Docker image?  
 ### What is a Dockerfile?  
 ### What is a Docker container?  
-### Docker Architecture
+### Docker architecture
 ### How can we use Docker on a robot?
 
 # Guide
@@ -31,10 +31,10 @@ Think of Dockerfile as a piece of code. A Dockerfile can be built into an Docker
 ## What is a Docker container?
 A Docker container is a runnable instance of an image. This is similar to how one can have multiple instances of a Class. In each container, the environment is relatively isolated from other containers and the host machine, meaning that its installed software and file system is mostly independent from each other. For instance, you can have three containers running on an Ubuntu 20.04 image, and three other containers running on an Ubuntu 18.04 image. And it would work just fine. 
 
-## Docker Architecture
+## Docker architecture
 Docker uses a client-server architecture:  
 
-![image](https://user-images.githubusercontent.com/59701038/134352545-4d983d71-715d-40bd-aef3-d6ce2315b41e.png)
+![Docker client-server](https://user-images.githubusercontent.com/59701038/134352545-4d983d71-715d-40bd-aef3-d6ce2315b41e.png)
 
 Typically, the client and the server (known as the daemon) runs on your local machine. The client communicates with the daemon via Docker API requests, and the daemon handles the requests by managing Docker objects such as images and containers. A Docker registries hosts people's Docker images and Dockerfiles online, so anyone can _pull_ them for their own purposes.
 
@@ -42,9 +42,18 @@ Typically, the client and the server (known as the daemon) runs on your local ma
 
 At a high level, One could run a single, or multiple docker containers containing ROS packages.
 
+## Docker image cross-compilation
+
+Typically, your personal machine runs on the x86_64 architecture. However, the Jetson Nano runs on the more power-efficient aarch64 (ARM) architecture. In order to build a Dockerfile, the system must be running the same architecture as the target machine. It is possible to build Dockerfiles on the Jetson directly, however this is _very_ slow. We can do better by setting up ARM emulation on a x86 system and build the Dockerfile on the more powerful machine. 
+
+![Docker cross-compile workflow](https://user-images.githubusercontent.com/59701038/134417794-b417a743-4ffe-4003-9daa-5e25067e7652.jpg)
+
+This this workflow, developers will first code on their local machines. Once the developer wants to deploy the application, they will build the Dockerfile into a new Docker image that contains the new code using the ARM emulator. Once built, the new image can be _pushed_ to a registry. On the Jetson side, the user can _pull_ the updated Docker image and run it as a containerized app. 
+
 # Exercise 
 
 # Resources
 [Docker Overview](https://docs.docker.com/get-started/overview/)  
 [PackBionics DockerHub](https://hub.docker.com/orgs/packbionics/repositories)  
-[Good Example of Using Docker for ROS](https://github.com/rnanosaur/nanosaur)
+[Good Example of Using Docker for ROS](https://github.com/rnanosaur/nanosaur)  
+[Docker cross-compilation example, from Stereolabs](https://www.stereolabs.com/docs/docker/building-arm-container-on-x86/)
