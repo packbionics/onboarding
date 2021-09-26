@@ -22,8 +22,14 @@ Once you have opened your terminal, type `git version`. If `git` is installed th
 
 ### Installing Git
 * On macOS, visit the [macOS Git Installer](https://sourceforge.net/projects/git-osx-installer/files/git-2.23.0-intel-universal-mavericks.dmg/download?use_mirror=autoselect) and download the latest version.
-* On Windows, vist the [Git for Windows installer](https://gitforwindows.org/) and download the latest version.
-* On Linux, use your package management tool to install `git-all`
+* On Windows, visit the [Git for Windows installer](https://gitforwindows.org/) and download the latest version.
+* On Linux, consult the [Git downloads page](https://git-scm.com/download/linux)
+```
+sudo add-apt-repository ppa:git-core/ppa \
+   sudo apt update \
+   sudo apt install git \
+   git config --global init.defaultBranch main
+```
 
 For a more indepth guide on installing Git visit this [page](https://github.com/git-guides/install-git).
 
